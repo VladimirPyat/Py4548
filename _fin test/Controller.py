@@ -1,4 +1,4 @@
-from File_utils import file_write, file_read
+
 from Notebook import Notebook, set_time, is_valid_date, DATEFORMAT
 
 
@@ -10,7 +10,7 @@ class Controller:  # тут содержится обработчик коман
             head = input('Введите заголовок заметки: ')
             body = input('Введите текст заметки: ')
             new_note = Notebook(head, body)
-            print(f"{new_note.mod_time} создана заметка id# {new_note.id}")
+            print(f"{new_note.mod_time} создана заметка id: {new_note.id}")
             Notebook.notes.append(new_note)
             read_line = ""
             print("Добавить еще одну заметку? (д/н):", end=" ")
@@ -18,7 +18,7 @@ class Controller:  # тут содержится обработчик коман
                 read_line = input()
             if read_line.lower().strip() == 'н':
                 break
-        file_write()
+        Notebook.put_to_file()          #сохранение файла заметок после каждого изменения
 
     @staticmethod
     def edit():
@@ -39,7 +39,7 @@ class Controller:  # тут содержится обработчик коман
             Notebook.notes[index_by_id].body = body
             Notebook.notes[index_by_id].mod_time = set_time()
             print("Заметка отредактирована")
-            file_write()
+            Notebook.put_to_file()          #сохранение файла заметок после каждого изменения
 
 
 
@@ -61,7 +61,7 @@ class Controller:  # тут содержится обработчик коман
             if read_line.lower().strip() == 'д':
                 del(Notebook.notes[index_by_id])
                 print("Заметка удалена")
-                file_write()
+                Notebook.put_to_file()          #сохранение файла заметок после каждого изменения
 
 
 
@@ -83,8 +83,11 @@ class Controller:  # тут содержится обработчик коман
                 end_date = readline
                 is_exit = True
         find_data = Notebook.find_by_date(start_date, end_date)
-        for note in find_data:
-            print(note.short_list())
+        if len(find_data)==0:
+            print("Заметки не найдены")
+        else:
+            list(map(lambda note: print(note.short_list()), find_data))
+
 
     @staticmethod
     def view():
