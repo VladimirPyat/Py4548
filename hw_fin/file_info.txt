@@ -1,0 +1,14 @@
+INFO:root:Информация о файле: FileInfo(filename='BootDebuggerFiles.ini', extension='.ini', is_dir=False, parent_dirname='Boot')
+
+INFO:root:Информация о файле: FileInfo(filename='DVD', extension='', is_dir=True, parent_dirname='Boot')
+
+INFO:root:Информация о файле: FileInfo(filename='EFI', extension='', is_dir=True, parent_dirname='Boot')
+
+INFO:root:Информация о файле: FileInfo(filename='Fonts', extension='', is_dir=True, parent_dirname='Boot')
+
+INFO:root:Информация о файле: FileInfo(filename='Misc', extension='', is_dir=True, parent_dirname='Boot')
+
+INFO:root:Информация о файле: FileInfo(filename='PCAT', extension='', is_dir=True, parent_dirname='Boot')
+
+INFO:root:Информация о файле: FileInfo(filename='Resources', extension='', is_dir=True, parent_dirname='Boot')
+

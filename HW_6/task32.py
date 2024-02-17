@@ -9,7 +9,7 @@ def random_list (n, min, max):
 
 def tres_search (some_list, min, max):
     result = []
-    for i in range(0, len(some_list)):
+    for i in range(len(some_list)):
 
         if ((some_list[i] >= min) and (some_list[i] <= max)):
             result.append(i)
